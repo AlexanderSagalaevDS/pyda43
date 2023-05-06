@@ -65,4 +65,3 @@ for country in countries_temperature:
     print(f'{country[0]} - {round( ((sum(country[1])/len(country[1]))-32)*5/9 ,2)} C ')
 
 
-
