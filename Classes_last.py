@@ -34,14 +34,13 @@ import requests
 class Rate:
 
     def __init__(self, format_='value'):
-
         self.format_ = format_
-    def exchange_rates(self):
 
+    def exchange_rates(self):
         self.r = requests.get('https://www.cbr-xml-daily.ru/daily_json.js')
         return self.r.json()['Valute']
-    def make_format(self, currency, diff):
 
+    def make_format(self, currency, diff):
         response = self.exchange_rates()
 
         if currency in response:
@@ -54,6 +53,7 @@ class Rate:
                         return response[currency]['Value']
         else:
             return "Error"
+
     def eur(self, diff):
 
         return self.make_format('EUR', diff)
