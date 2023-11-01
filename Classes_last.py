@@ -71,3 +71,45 @@ print(ex_.usd(True))
 “Используемый ноутбук к лекциям «Понятие класса»).
 
 '''
+class Employee:
+    def __init__(self, name, seniority):
+        self.name = name
+        self.seniority = seniority
+        self.grade = 1
+
+    def grade_up(self):
+        """Повышает уровень сотрудника"""
+        self.grade += 1
+
+    def publish_grade(self):
+        """Публикация результатов аккредитации сотрудников"""
+        print(self.name, self.grade)
+
+    def check_if_it_is_time_for_upgrade(self):
+        pass
+
+
+class Designer(Employee):
+    def __init__(self, name, seniority, awards):
+        super().__init__(name, seniority)
+        self.awards = awards + 2
+
+    def check_if_it_is_time_for_upgrade(self):
+        # для каждой аккредитации увеличиваем счетчик на 1
+        # пока считаем, что все разработчики проходят аккредитацию
+        self.seniority += 1
+        #
+        self.seniority += 2 * self.awards
+
+        # Повышение на 1 грейд за каждые 7 балов
+        if self.seniority % 7 == 0:
+            self.grade_up()
+
+        # публикация результатов
+        return self.publish_grade()
+
+alex = Designer('Александр', 2, 0)
+alex.check_if_it_is_time_for_upgrade()
+
+
+
