@@ -30,8 +30,11 @@ max_result()
 При отображении всей информации о валюте он не используется.
 '''
 import requests
+
 class Rate:
+
     def __init__(self, format_='value'):
+
         self.format_ = format_
     def exchange_rates(self):
 
@@ -52,8 +55,10 @@ class Rate:
         else:
             return "Error"
     def eur(self, diff):
+
         return self.make_format('EUR', diff)
     def usd(self, diff):
+
         return self.make_format('USD', diff)
 
 ex_ = Rate(format_='value')
