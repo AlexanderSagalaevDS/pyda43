@@ -6,10 +6,12 @@
 import requests
 
 def get_api():
+
     r = requests.get('https://www.cbr-xml-daily.ru/daily_json.js')
     return r.json()['Valute']
 
 def max_result():
+
     data = get_api()
     list_ = {}
     for i, j in data.items():
