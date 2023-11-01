@@ -55,11 +55,11 @@ class Rate:
             return "Error"
 
     def eur(self, diff):
-
         return self.make_format('EUR', diff)
-    def usd(self, diff):
 
+    def usd(self, diff):
         return self.make_format('USD', diff)
+
 
 ex_ = Rate(format_='value')
 print(ex_.usd(True))
